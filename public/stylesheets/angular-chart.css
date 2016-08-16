@@ -1,6 +1,7 @@
 .bar-legend,
 .chart-legend,
 .doughnut-legend,
+.radar-legend,
 .line-legend,
 .pie-legend,
 .polararea-legend,
@@ -9,6 +10,7 @@
 .bar-legend li,
 .chart-legend li,
 .doughnut-legend li,
+.radar-legend li,
 .line-legend li,
 .pie-legend li,
 .polararea-legend li,
@@ -17,6 +19,7 @@
 .bar-legend li span,
 .chart-legend li span,
 .doughnut-legend li span,
+.radar-legend li span,
 .line-legend li span,
 .pie-legend li span,
 .polararea-legend li span,.radar-legend li span

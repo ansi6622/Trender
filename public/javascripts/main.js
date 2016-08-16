@@ -42,7 +42,7 @@ function ($scope, socket) {
             //increment wInQ-count(displayed in html), and ticker-count(checks for existance)
             ticker++;
             $scope.sentTrumpPos[j].cnt++;
-            $scope.sentTrumpPos[j].tweets[$scope.sentTrumpPos[j].cnt - 1] = tweet.text;
+            $scope.sentTrumpPos[j].tweets[$scope.sentTrumpPos[j].cnt.value - 1] = tweet.text;
             if($scope.sentTrumpPos[j].cnt > 10 && $scope.sentTrumpPos[j].big === false){
               $scope.sentTrumpPos[j].big = true
             }
