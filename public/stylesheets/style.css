@@ -1,0 +1,32 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgba(25, 265, 118, .4);
+}
+
+a {
+  color: green;
+}
+
+#trump #trump2 #hillary #hillary2 {
+  float: right;
+  width: 20px !important;
+  height: 20px !important;
+  text-align: center;
+}
+
+.left .middle .right {
+  display: block;
+}
+.name {
+  font-weight:bold;
+  font-size:30px;
+  float: right;
+}
+
+.img {
+  width: 20em;
+  height: 20em;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
