@@ -16,6 +16,7 @@ a {
 }
 .overflow {
   height: 7em;
+  width: 18em;
   overflow: auto;
 }
 .left .middle .right {
