@@ -15,14 +15,36 @@
     <header>
       Welcome to trender
     </header>
-    <!-- errors -->
-    <h1>{{ message }}</h1>
-    <h2>{{ error.status }}</h2>
-    <pre>{{ error.stack }}</pre>
 
         <!-- Page Content -->
         <div class="container">
           <div ng-app='myApp' ng-controller="mainCtrl">
+            <div class='row'>
+              <div class="col-md-12">
+                {% raw %}
+                <div class="tweet-zone">
+                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 panelheader class="panel-title">
+                          <a href="https://twitter.com/{{user}}">{{user}}</a>
+                        </h3>
+                      </div>
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="col-md-12">
+                            {{tweet}}
+                            {{sentiment}}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endraw %}
+            </div>
+            <br><br>
                   <div class='row' style='margin-top: 50px'>
                       <article class="left">
                           <table>
@@ -36,17 +58,16 @@
                               <tbody>
                                   <tr>
                                     <td>
-                                      <img class='img' src='../img/trump.png'>
-                                    </td>
-                                    <td>
                                       <span class='name'>#Trump</span>
                                       <canvas id="trump" class="chart chart-polar-area" chart-colours="colors" chart-legend="true" chart-data="trumpData" chart-labels="labels"></canvas>
-
+                                      <div class="overflow">
                                       <span ng-repeat="word in sentTrumpPos">
                                         <span ng-bind="word.txt"></span>
                                         <span ng-bind="word.cnt"></span>
                                       </span>
+                                      </div>
                                       <h4>
+                                      <div class="overflow">
                                       <span ng-repeat="word in sentTrumpPos">
                                         <span ng-if="word.big == true">
                                           <span ng-bind="word.txt"></span>
@@ -57,16 +78,23 @@
                                         </span>
                                         </span>
                                       </span>
+                                     </div>
                                     </h4>
+                                    </td>
+                                    <td>
+                                      <img class='img' src='http://www.dailywire.com/sites/default/files/uploads/2016/05/150629_donald_trump_nbc_gty_1160.jpg'>
                                     </td>
                                       <td>
                                           <span class='name'>#Trump :(</span>
                                           <canvas id="trump2" class="chart chart-polar-area" chart-colours='colors' chart-legend="true" chart-data="trumpData2" chart-labels="labels"></canvas>
+                                          <div class="overflow">
                                           <span ng-repeat="word in sentTrumpNeg track by $index">
                                             <span ng-bind="word.txt"></span>
                                             <span ng-bind="word.cnt"></span>
                                           </span>
+                                        </div>
                                           <h4>
+                                          <div class="overflow">
                                           <span ng-repeat="word in sentTrumpNeg">
                                             <span ng-if="word.big == true">
                                               <span ng-bind="word.txt"></span>
@@ -76,6 +104,7 @@
                                               </span>
                                             </span>
                                           </span>
+                                        </div>
                                         </h4>
                                       </td>
                                   </tr>
@@ -94,17 +123,17 @@
                               </thead>
                               <tbody>
                                   <tr>
-                                    <td>
-                                      <img class='img' src='https://mises.org/sites/default/files/23158392405_d3e3b60cb8_o.jpg'>
-                                    </td>
                                       <td>
                                           <span class='name'>#hillaryclinton</span>
                                           <canvas id="hillary" class="chart chart-polar-area" chart-colours='colors' chart-legend="true" chart-data="hillaryData" chart-labels="labels"></canvas>
+                                          <div class="overflow">
                                             <span ng-repeat="word in sentHillaryPos track by $index">
                                               <span ng-bind="word.txt"></span>
                                               <span ng-bind="word.cnt"></span>
                                             </span>
+                                          </div>
                                             <h4>
+                                              <div class="overflow">
                                             <span ng-repeat="word in sentHillaryPos">
                                               <span ng-if="word.big == true">
                                                 <span ng-bind="word.txt"></span>
@@ -114,16 +143,23 @@
                                                 </span>
                                               </span>
                                             </span>
+                                          </div>
                                           </h4>
+                                      </td>
+                                      <td>
+                                        <img class='img' src='https://mises.org/sites/default/files/23158392405_d3e3b60cb8_o.jpg'>
                                       </td>
                                       <td>
                                           <span class='name'>#hillaryclinton :(</span>
                                           <canvas id="hillary2" class="chart chart-polar-area" chart-colours='colors' chart-legend="true" chart-data="hillaryData2" chart-labels="labels"></canvas>
+                                          <div class="overflow">
                                           <span ng-repeat="word in sentHillaryNeg track by $index">
                                             <span ng-bind="word.txt"></span>
                                             <span ng-bind="word.cnt"></span>
                                           </span>
+                                        </div>
                                           <h4>
+                                            <div class="overflow">
                                           <span ng-repeat="word in sentHillaryNeg">
                                             <span ng-if="word.big == true">
                                               <span ng-bind="word.txt"></span>
@@ -133,6 +169,7 @@
                                               </span>
                                             </span>
                                           </span>
+                                        </div>
                                         </h4>
                                       </td>
                                   </tr>
@@ -140,36 +177,8 @@
                           </table>
                       </article>
                   </div>
-                  <br><br>
-                  <div class='row'>
-                    <div class="col-md-12">
-                        {% raw %}
-                            <div class="tweet-zone">
-                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h3 panelheader class="panel-title">
-                                                <a href="https://twitter.com/{{user}}">{{user}}</a>
-                                            </h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    {{tweet}}
-                                                    {{sentiment}}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {% endraw %}
-                </div>
-                </div>
-
+              </div>
         </div>
-
         <br><br>
         <!-- scripts -->
         <script src="//code.jquery.com/jquery-1.11.2.min.js" type="text/javascript"></script>
@@ -180,13 +189,9 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
         <script src="//cdn.socket.io/socket.io-1.2.0.js" type="text/javascript"></script>
         <script src="{{ baseurl}}/javascripts/main.js" type="text/javascript"></script>
-
-
-
-<!--  -->
-
-
-
-
+        <!-- errors -->
+        <h1>{{ message }}</h1>
+        <h2>{{ error.status }}</h2>
+        <pre>{{ error.stack }}</pre>
   </body>
 </html>

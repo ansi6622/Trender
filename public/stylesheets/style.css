@@ -14,7 +14,10 @@ a {
   height: 20px !important;
   text-align: center;
 }
-
+.overflow {
+  height: 7em;
+  overflow: auto;
+}
 .left .middle .right {
   display: block;
 }
