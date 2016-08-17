@@ -50,59 +50,61 @@
                           <table>
                               <thead>
                                 <tr>
-                                  <p>
+                                  <td>
                                     Trump
-                                  </p>
+                                  </td>
                                 </tr>
                               </thead>
                               <tbody>
                                   <tr>
                                     <td>
+                                      <img class='img' src='http://www.dailywire.com/sites/default/files/uploads/2016/05/150629_donald_trump_nbc_gty_1160.jpg'>
+                                    </td>
+                                    <td>
                                       <span class='name'>#Trump</span>
                                       <canvas id="trump" class="chart chart-polar-area" chart-colours="colors" chart-legend="true" chart-data="trumpData" chart-labels="labels"></canvas>
-                                      <div class="overflow">
+                                      <div class="overflow well">
                                       <span ng-repeat="word in sentTrumpPos">
                                         <span ng-bind="word.txt"></span>
                                         <span ng-bind="word.cnt"></span>
                                       </span>
                                       </div>
                                       <h4>
-                                      <div class="overflow">
+                                      <div class="overflow well">
                                       <span ng-repeat="word in sentTrumpPos">
                                         <span ng-if="word.big == true">
                                           <span ng-bind="word.txt"></span>
                                           <span ng-bind="word.cnt"></span>
-                                          <span ng-repeat="tweet in word.tweets">
-                                            <span ng-bind="tweet"></span>
-                                          </span>
+                                        </span>
+                                        <span ng-repeat="tweet in word.tweets">
+                                          <span ng-bind="tweet"></span>
                                         </span>
                                         </span>
                                       </span>
                                      </div>
                                     </h4>
                                     </td>
-                                    <td>
-                                      <img class='img' src='http://www.dailywire.com/sites/default/files/uploads/2016/05/150629_donald_trump_nbc_gty_1160.jpg'>
-                                    </td>
                                       <td>
                                           <span class='name'>#Trump :(</span>
                                           <canvas id="trump2" class="chart chart-polar-area" chart-colours='colors' chart-legend="true" chart-data="trumpData2" chart-labels="labels"></canvas>
-                                          <div class="overflow">
+                                          <div class="overflow well">
                                           <span ng-repeat="word in sentTrumpNeg track by $index">
                                             <span ng-bind="word.txt"></span>
                                             <span ng-bind="word.cnt"></span>
                                           </span>
-                                        </div>
+                                          </div>
                                           <h4>
-                                          <div class="overflow">
+                                          <div class="overflow well">
                                           <span ng-repeat="word in sentTrumpNeg">
                                             <span ng-if="word.big == true">
                                               <span ng-bind="word.txt"></span>
                                               <span ng-bind="word.cnt"></span>
-                                              <span ng-repeat="tweet in word.tweets">
-                                                <span ng-bind="tweet"></span>
-                                              </span>
                                             </span>
+                                          </span>
+                                          <span ng-repeat="word in sentTrumpNeg track by $index">
+                                          <span ng-repeat="tweet in word.tweets">
+                                            <span ng-bind="tweet"></span>
+                                          </span>
                                           </span>
                                         </div>
                                         </h4>
@@ -116,60 +118,60 @@
                           <table>
                               <thead>
                                   <tr>
-                                    <p>
+                                    <td>
                                       Hillary
-                                    </p>
+                                    </td>
                                   </tr>
                               </thead>
                               <tbody>
                                   <tr>
+                                    <td>
+                                      <img class='img' src='https://mises.org/sites/default/files/23158392405_d3e3b60cb8_o.jpg'>
+                                    </td>
                                       <td>
                                           <span class='name'>#hillaryclinton</span>
                                           <canvas id="hillary" class="chart chart-polar-area" chart-colours='colors' chart-legend="true" chart-data="hillaryData" chart-labels="labels"></canvas>
-                                          <div class="overflow">
+                                          <div class="overflow well">
                                             <span ng-repeat="word in sentHillaryPos track by $index">
                                               <span ng-bind="word.txt"></span>
                                               <span ng-bind="word.cnt"></span>
                                             </span>
                                           </div>
                                             <h4>
-                                              <div class="overflow">
-                                            <span ng-repeat="word in sentHillaryPos">
+                                            <div class="overflow well">
+                                            <span ng-repeat="word in sentHillaryPos track by $index">
                                               <span ng-if="word.big == true">
                                                 <span ng-bind="word.txt"></span>
                                                 <span ng-bind="word.cnt"></span>
-                                                <span ng-repeat="tweet in word.tweets">
-                                                  <span ng-bind="tweet"></span>
-                                                </span>
+                                              </span>
+                                              <span ng-repeat="tweet in word.tweets track by $index">
+                                                <span ng-bind="tweet"></span>
                                               </span>
                                             </span>
                                           </div>
                                           </h4>
                                       </td>
                                       <td>
-                                        <img class='img' src='https://mises.org/sites/default/files/23158392405_d3e3b60cb8_o.jpg'>
-                                      </td>
-                                      <td>
                                           <span class='name'>#hillaryclinton :(</span>
                                           <canvas id="hillary2" class="chart chart-polar-area" chart-colours='colors' chart-legend="true" chart-data="hillaryData2" chart-labels="labels"></canvas>
-                                          <div class="overflow">
+                                          <div class="overflow well">
                                           <span ng-repeat="word in sentHillaryNeg track by $index">
                                             <span ng-bind="word.txt"></span>
                                             <span ng-bind="word.cnt"></span>
                                           </span>
                                         </div>
                                           <h4>
-                                            <div class="overflow">
-                                          <span ng-repeat="word in sentHillaryNeg">
-                                            <span ng-if="word.big == true">
-                                              <span ng-bind="word.txt"></span>
-                                              <span ng-bind="word.cnt"></span>
-                                              <span ng-repeat="tweet in word.tweets">
+                                            <div class="overflow well">
+                                            <span ng-repeat="word in sentHillaryNeg track by $index">
+                                              <span ng-if="word.big == true">
+                                                <span ng-bind="word.txt"></span>
+                                                <span ng-bind="word.cnt"></span>
+                                              </span>
+                                              <span ng-repeat="tweet in word.tweets track by $index">
                                                 <span ng-bind="tweet"></span>
                                               </span>
                                             </span>
-                                          </span>
-                                        </div>
+                                          </div>
                                         </h4>
                                       </td>
                                   </tr>
