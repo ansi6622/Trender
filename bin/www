@@ -1,3 +1,4 @@
+require('dotenv').load();
 var debug = require('debug')('sockettest:server');
 var http = require('http');
 var port = '3000';
@@ -13,10 +14,10 @@ var server = app.listen(3000, function () {
 var io = require('socket.io').listen(server);
 
 var client = new Twitter({
-  consumer_key: NODE.ENV.CONSUMER_KEY,
-  consumer_secret: NODE.ENV.CONSUMER_SECRET,
-  access_token_key: NODE.ENV.ACCESS_TOKEN_KEY,
-  access_token_secret: NODE.ENV.ACCESS_TOKEN_SECRET
+  consumer_key: process.env.CONSUMER_KEY,
+  consumer_secret: process.env.CONSUMER_SECRET,
+  access_token_key: process.env.ACCESS_TOKEN_KEY,
+  access_token_secret: process.env.ACCESS_TOKEN_SECRET
 });
 
 var hashtags = '#Trump, #FeelTheBern, #hillaryclinton';
