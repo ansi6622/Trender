@@ -12,7 +12,8 @@
     "dotenv": "^2.0.0",
     "express": "~4.13.1",
     "morgan": "~1.6.1",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "swig": "^1.4.2"
   },
   "devDependencies": {
     "angular-chartjs": "0.0.5",
