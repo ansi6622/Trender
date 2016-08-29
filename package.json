@@ -13,7 +13,8 @@
     "express": "~4.13.1",
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
-    "swig": "^1.4.2"
+    "swig": "^1.4.2",
+    "twitter": "^1.4.0"
   },
   "devDependencies": {
     "angular-chartjs": "0.0.5",
