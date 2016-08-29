@@ -291,6 +291,7 @@ function ($scope, socket) {
 
 
 // SocketCitybish warning
+// seperate twitter bar somewheres for hillary
 twitterStream.factory('socket', function ($rootScope) {
   var socket = io.connect();
   return {
