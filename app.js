@@ -1,19 +1,15 @@
 
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var http = require('http');
-var swig = require('swig');
+//var swig = require('swig');
 var app = express();
-
-// view engine setup
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-swig = new swig.Swig();
-app.engine('html', swig.renderFile);
+//swig = new swig.Swig();
+//app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 
 app.use(logger('dev'));
@@ -22,8 +18,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', function(req, res, next) {
-  res.render('index');
+app.get('*', function(req, res, next) {
+  res.sendfile('index.html', {root: __dirname})
 });
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
