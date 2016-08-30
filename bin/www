@@ -11,6 +11,14 @@ var server = app.listen(3000, function () {
 });
 
 var io = require('socket.io').listen(server);
+
+//Set the sockets.io configuration.
+//THIS IS NECESSARY ONLY FOR HEROKU!
+sockets.configure(function() {
+  sockets.set('transports', ['xhr-polling']);
+  sockets.set('polling duration', 10);
+});
+
 var client = new Twitter({
   consumer_key: process.env.CONSUMER_KEY,
   consumer_secret: process.env.CONSUMER_SECRET,
