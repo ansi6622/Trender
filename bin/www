@@ -10,14 +10,7 @@ var server = app.listen(3000, function () {
   console.log('The server is listening on port 3000');
 });
 
-var io = require('socket.io').listen(server);
-
-//Set the sockets.io configuration.
-//THIS IS NECESSARY ONLY FOR HEROKU!
-io.configure(function() {
-  io.set('transports', ['xhr-polling']);
-  io.set('polling duration', 10);
-});
+var io = require('socket.io').listen(process.env.PORT || server);
 
 var client = new Twitter({
   consumer_key: process.env.CONSUMER_KEY,
