@@ -1,4 +1,4 @@
-
+require('dotenv').config();
 var debug = require('debug')('sockettest:server');
 var http = require('http');
 var port = '3000';
@@ -6,7 +6,7 @@ var app = require('../app');
 var Twitter = require('twitter');
 var sentiment = require('sentiment');
 
-var server = app.listen((process.env.PORT || 3000), function () {
+var server = app.listen((process.env.PORT || port), function () {
   console.log('The server is listening on port 3000 or some other shit');
 });
 
@@ -24,7 +24,7 @@ var hashtags = '#Trump, #FeelTheBern, #hillaryclinton';
 client.stream('statuses/filter', {track: hashtags}, function(stream) {
   stream.on('data', function(tweet) {
     var sentiments = sentiment(tweet.text);
-    console.log(sentiments);
+    //console.log(sentiments);
     io.emit('newTweet', tweet, sentiments);
   });
   stream.on('error', function(error) {

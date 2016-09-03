@@ -6,11 +6,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var http = require('http');
-//var swig = require('swig');
+// var swig = require('swig');
 var app = express();
-//swig = new swig.Swig();
-//app.engine('html', swig.renderFile);
-app.set('view engine', 'html');
+// swig = new swig.Swig();
+// app.engine('html', swig.renderFile);
+// app.set('view engine', 'html');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -19,7 +19,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('*', function(req, res, next) {
-  res.sendfile('index.html', {root: __dirname})
+  res.sendFile('index.html', {root: __dirname})
 });
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
