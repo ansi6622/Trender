@@ -43,3 +43,7 @@ a {
   border-radius: 50%;
   border: 2px solid #fff;
 }
+
+.tweet {
+  color: rgba(255, 120, 0, 0.5);
+}

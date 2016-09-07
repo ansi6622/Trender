@@ -19,29 +19,21 @@
         <!-- Page Content -->
 
           <div class="container" ng-app='myApp' ng-controller="mainCtrl">
-            <div class='row'>
-              <div class="col-md-12">
-                <div class="tweet-zone">
-                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    <div class="panel panel-default">
+            <div class="row col-md-12">
+                  <div class="tweet-zone panel-group panel panel-default" id="accordion" role="tablist" aria-multiselectable="true">
                       <div class="panel-heading">
                         <h3 panelheader class="panel-title">
                           <a href="https://twitter.com/{{user}}">{{user}}</a>
                         </h3>
                       </div>
                       <div class="panel-body">
-                        <div class="row">
                           <div class="col-md-12">
                             {{tweet}}
                             {{sentiment}}
                           </div>
-                        </div>
                       </div>
-                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
                   <div class='row' style='margin-top: 50px'>
                       <article class="left">
                           <table>
@@ -64,17 +56,19 @@
                                       <span ng-repeat="word in sentTrumpPos track by $index">
                                         <span ng-bind="word.txt" ng-click="options=true"></span>
                                         <span ng-bind="word.cnt"></span>
-                                        <div class="well" ng-show="options" ng-repeat="tweet in word.tweets" ng-click="options=false">
-                                          <span ng-bind="tweet"></span>
-                                        </div>
+                                        <span class="tweet" ng-bind="word.tweets" ng-show="options" ng-click="options=false"></span>
                                       </span>
                                       </div>
                                       <h4>
                                       <div class="overflow well">
                                       <span ng-repeat="word in sentTrumpPos">
                                         <span ng-if="word.big == true">
-                                          <span ng-bind="word.txt"></span>
+                                          <span ng-bind="word.txt" ng-click="options=true"></span>
                                           <span ng-bind="word.cnt"></span>
+                                          <!-- <span ng-bind="word.tweets"></span> -->
+                                          <div class="tweet" ng-show="options">
+                                            <span ng-click="options=false" ng-bind="word.tweets"></span>
+                                          </div>
                                         </span>
                                       </span>
                                      </div>
@@ -87,17 +81,19 @@
                                           <span ng-repeat="word in sentTrumpNeg track by $index">
                                             <span ng-bind="word.txt" ng-click="options=true"></span>
                                             <span ng-bind="word.cnt"></span>
-                                            <div class="well" ng-show="options" ng-repeat="tweet in word.tweets" ng-click="options=false">
-                                              <span ng-bind="tweet"></span>
-                                            </div>
+                                            <span class="tweet" ng-bind="word.tweets" ng-show="options" ng-click="options=false"></span>
                                           </span>
                                           </div>
                                           <h4>
                                           <div class="overflow well">
                                           <span ng-repeat="word in sentTrumpNeg track by $index">
                                             <span ng-if="word.big == true">
-                                              <span ng-bind="word.txt"></span>
+                                              <span ng-bind="word.txt" ng-click="options=true"></span>
                                               <span ng-bind="word.cnt"></span>
+                                              <!-- <span ng-bind="word.tweets"></span> -->
+                                              <div class="well" ng-show="options" ng-click="options=false">
+                                                <span ng-bind="word.tweets"></span>
+                                              </div>
                                             </span>
                                           </span>
                                           </div>
@@ -129,17 +125,18 @@
                                           <span ng-repeat="word in sentHillaryPos track by $index">
                                             <span ng-bind="word.txt" ng-click="options=true"></span>
                                             <span ng-bind="word.cnt"></span>
-                                            <div class="well" ng-show="options" ng-repeat="tweet in word.tweets" ng-click="options=false">
-                                              <span ng-bind="tweet"></span>
-                                            </div>
+                                            <span class="tweet" ng-bind="word.tweets" ng-show="options" ng-click="options=false"></span>
                                           </span>
                                           </div>
                                             <h4>
                                             <div class="overflow well">
                                             <span ng-repeat="word in sentHillaryPos track by $index">
                                               <span ng-if="word.big == true">
-                                                <span ng-bind="word.txt"></span>
+                                                <span ng-bind="word.txt" ng-click="options=true"></span>
                                                 <span ng-bind="word.cnt"></span>
+                                                <div class="well" ng-show="options">
+                                                  <span ng-bind="word.tweets" ng-click="options=false"></span>
+                                                </div>
                                               </span>
                                             </span>
                                           </div>
@@ -152,17 +149,18 @@
                                           <span ng-repeat="word in sentHillaryNeg track by $index">
                                             <span ng-bind="word.txt" ng-click="options=true"></span>
                                             <span ng-bind="word.cnt"></span>
-                                            <div class="well" ng-show="options" ng-repeat="tweet in word.tweets" ng-click="options=false">
-                                              <span ng-bind="tweet"></span>
-                                            </div>
+                                            <span class="tweet" ng-bind="word.tweets" ng-show="options" ng-click="options=false"></span>
                                           </span>
                                           </div>
                                           <h4>
                                             <div class="overflow well">
                                             <span ng-repeat="word in sentHillaryNeg track by $index">
                                               <span ng-if="word.big == true">
-                                                <span ng-bind="word.txt"></span>
+                                                <span ng-bind="word.txt" ng-click="options=true"></span>
                                                 <span ng-bind="word.cnt"></span>
+                                                <div class="well" ng-show="options">
+                                                  <span ng-click="options=false" ng-bind="word.tweets"></span>
+                                                </div>
                                               </span>
                                             </span>
                                           </div>

@@ -5,7 +5,7 @@ function ($scope, socket) {
   //chart labels
   $scope.labels = ["iPhone", "iPad", "Android", "Web Client", "Other"];
   //chart colors
-  $scope.colors = ['#ffffff','#ddccdd','#ddffaa','#ccccff', '#aa99dd'];
+  $scope.colors = ['#ffffff','#779999','#ddffaa','#ddccff', '#aa99dd'];
   //intial data values
   $scope.trumpData = [0,0,0,0,0];
   $scope.trumpData2 = [0,0,0,0,0];
@@ -42,8 +42,8 @@ function ($scope, socket) {
             //increment wInQ-count(displayed in html), and ticker-count(checks for existance)
             ticker++;
             $scope.sentTrumpPos[j].cnt++;
-            $scope.sentTrumpPos[j].tweets[$scope.sentTrumpPos[j].cnt.value - 1] = tweet.text;
-            if($scope.sentTrumpPos[j].cnt > 10 && $scope.sentTrumpPos[j].big === false){
+            $scope.sentTrumpPos[j].tweets.push(tweet.text);
+            if($scope.sentTrumpPos[j].cnt > 7 && $scope.sentTrumpPos[j].big === false){
               $scope.sentTrumpPos[j].big = true
             }
               }
@@ -54,10 +54,11 @@ function ($scope, socket) {
           console.log(tweet.text);
           var word = {
             txt: wInQ,
-            tweets: [tweet.text],
+            tweets: [],
             cnt: 1,
             big: false
           };
+          word.tweets.push(tweet.text);
           $scope.sentTrumpPos.push(word);
         }
       }
@@ -70,8 +71,8 @@ function ($scope, socket) {
           if($scope.sentTrumpNeg[g].txt === wInQ2){
             ticker2++;
             $scope.sentTrumpNeg[g].cnt++;
-            $scope.sentTrumpPos[g].tweets[$scope.sentTrumpPos[g].cnt - 1] = tweet.text;
-            if($scope.sentTrumpNeg[g].cnt > 10 && $scope.sentTrumpNeg[g].big === false){
+            $scope.sentTrumpNeg[g].tweets.push(tweet.text);
+            if($scope.sentTrumpNeg[g].cnt > 7 && $scope.sentTrumpNeg[g].big === false){
               $scope.sentTrumpNeg[g].big = true
             }
               }
@@ -79,10 +80,11 @@ function ($scope, socket) {
         if (ticker2 === 0) {
           var word2 = {
             txt: wInQ2,
-            tweets: [tweet.text],
+            tweets: [],
             cnt: 1,
             big: false
           };
+          word2.tweets.push(tweet.text);
           $scope.sentTrumpNeg.push(word2);
         }
       }
@@ -109,8 +111,8 @@ function ($scope, socket) {
           if($scope.sentTrumpPos[j].txt === wInQ){
             ticker++;
             $scope.sentTrumpPos[j].cnt++;
-            $scope.sentTrumpPos[j].tweets[$scope.sentTrumpPos[j].cnt - 1] = tweet.text;
-            if($scope.sentTrumpPos[j].cnt > 10 && $scope.sentTrumpPos[j].big === false){
+            $scope.sentTrumpPos[j].tweets.push(tweet.text);
+            if($scope.sentTrumpPos[j].cnt > 7 && $scope.sentTrumpPos[j].big === false){
               $scope.sentTrumpPos[j].big = true
             }
               }
@@ -119,8 +121,10 @@ function ($scope, socket) {
           var word = {
             txt: wInQ,
             cnt: 1,
+            tweets: [],
             big: false
           };
+          word.tweets.push(tweet.text);
           $scope.sentTrumpPos.push(word);
         }
       }
@@ -132,8 +136,8 @@ function ($scope, socket) {
           if($scope.sentTrumpNeg[g].txt === wInQ2){
             ticker2++;
             $scope.sentTrumpNeg[g].cnt++;
-            $scope.sentTrumpPos[g].tweets[$scope.sentTrumpPos[g].cnt - 1] = tweet.text;
-            if($scope.sentTrumpNeg[g].cnt > 10 && $scope.sentTrumpNeg[g].big === false){
+            $scope.sentTrumpNeg[g].tweets.push(tweet.text);
+            if($scope.sentTrumpNeg[g].cnt > 7 && $scope.sentTrumpNeg[g].big === false){
               $scope.sentTrumpNeg[g].big = true
             }
               }
@@ -141,10 +145,11 @@ function ($scope, socket) {
         if (ticker2 === 0) {
           var word2 = {
             txt: wInQ2,
-            tweets: [tweet.text],
+            tweets: [],
             cnt: 1,
             big: false
           };
+          word2.tweets.push(tweet.text);
           $scope.sentTrumpNeg.push(word2);
         }
       }
@@ -176,7 +181,8 @@ function ($scope, socket) {
           if($scope.sentHillaryPos[j].txt === wInQ){
             ticker++;
             $scope.sentHillaryPos[j].cnt++;
-            if($scope.sentHillaryPos[j].cnt > 10 && $scope.sentHillaryPos[j].big === false){
+            $scope.sentHillaryPos[j].tweets.push(tweet.text);
+            if($scope.sentHillaryPos[j].cnt > 7 && $scope.sentHillaryPos[j].big === false){
               $scope.sentHillaryPos[j].big = true
             }
               }
@@ -184,10 +190,11 @@ function ($scope, socket) {
         if (ticker === 0) {
           var word = {
             txt: wInQ,
-            tweets: [tweet.text],
+            tweets: [],
             cnt: 1,
             big: false
           };
+          word.tweets.push(tweet.text);
           $scope.sentHillaryPos.push(word);
         }
       }
@@ -198,7 +205,8 @@ function ($scope, socket) {
           if($scope.sentHillaryNeg[g].txt === wInQ){
             ticker++;
             $scope.sentHillaryNeg[g].cnt++;
-            if($scope.sentHillaryNeg[g].cnt > 10 && $scope.sentHillaryNeg[g].big === false){
+            $scope.sentHillaryNeg[g].tweets.push(tweet.text);
+            if($scope.sentHillaryNeg[g].cnt > 7 && $scope.sentHillaryNeg[g].big === false){
               $scope.sentHillaryNeg[g].big = true
             }
               }
@@ -206,10 +214,11 @@ function ($scope, socket) {
         if (ticker === 0) {
           var word = {
             txt: wInQ,
-            tweets: [tweet.text],
+            tweets: [],
             cnt: 1,
             big: false
           };
+          word.tweets.push(tweet.text);
           $scope.sentHillaryNeg.push(word);
         }
       }
@@ -235,7 +244,8 @@ function ($scope, socket) {
           if($scope.sentHillaryPos[j].txt === wInQ){
             ticker++;
             $scope.sentHillaryPos[j].cnt++;
-            if($scope.sentHillaryPos[j].cnt > 10 && $scope.sentHillaryPos[j].big === false){
+            $scope.sentHillaryPos[j].tweets.push(tweet.text);
+            if($scope.sentHillaryPos[j].cnt > 7 && $scope.sentHillaryPos[j].big === false){
               $scope.sentHillaryPos[j].big = true
             }
               }
@@ -243,10 +253,11 @@ function ($scope, socket) {
         if (ticker === 0) {
           var word = {
             txt: wInQ,
-            tweets: [tweet.text],
+            tweets: [],
             cnt: 1,
             big: false
           };
+          word.tweets.push(tweet.text);
           $scope.sentHillaryPos.push(word);
         }
       }
@@ -258,7 +269,8 @@ function ($scope, socket) {
           if($scope.sentHillaryNeg[g].txt === wInQ){
             ticker++;
             $scope.sentHillaryNeg[g].cnt++;
-            if($scope.sentHillaryNeg[g].cnt > 10 && $scope.sentHillaryNeg[g].big === false){
+            $scope.sentHillaryNeg[g].tweets.push(tweet.text);
+            if($scope.sentHillaryNeg[g].cnt > 7 && $scope.sentHillaryNeg[g].big === false){
               $scope.sentHillaryNeg[g].big = true
             }
               }
@@ -266,10 +278,11 @@ function ($scope, socket) {
         if (ticker === 0) {
           var word = {
             txt: wInQ,
-            tweets: [tweet.text],
+            tweets: [],
             cnt: 1,
             big: false
           };
+          word.tweets.push(tweet.text);
           $scope.sentHillaryNeg.push(word);
         }
       }
